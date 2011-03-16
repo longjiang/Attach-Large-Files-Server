@@ -1,0 +1,11 @@
+#PASSWORD FILE#
+###############
+DEOvADHLQf2DZ279lUhD.txt
+
+#GENERATED FILES#
+#################
+files/
+
+#CONFIG FILES#
+##############
+system/application/config/config.php
