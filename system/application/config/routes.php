@@ -42,8 +42,8 @@
 
 $route['default_controller'] = "welcome";
 $route['scaffolding_trigger'] = "";
-$route['(:any)/(:num)'] = "download/file/$1/$2";
-$route['(:any)'] = "download/directory/$1";
+//$route['(:any)/(:num)'] = "download/file/$1/$2";
+//$route['(:any)'] = "download/directory/$1";
 
 
 /* End of file routes.php */

@@ -9,6 +9,7 @@ class Welcome extends Controller {
 	
 	function index()
 	{
+		echo 'Welcome Controller loaded';
 		//Nothing displays
 	}
 }
