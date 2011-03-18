@@ -20,4 +20,4 @@ Thumbs.db
 
 #CONFIG FILES#
 ##############
-system/application/config/config.php
+application/config/config.php
