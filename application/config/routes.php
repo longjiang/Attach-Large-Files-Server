@@ -42,8 +42,14 @@
 
 $route['default_controller'] = "welcome";
 $route['scaffolding_trigger'] = "";
-//$route['(:any)/(:num)'] = "download/file/$1/$2";
-//$route['(:any)'] = "download/directory/$1";
+
+// Routing file download URIs.  Excluding experiment and tests controllers.
+$success = preg_match_all('/([^\/]*)/', $_SERVER['REQUEST_URI'], $matches);
+$uri_segs = $matches[0];  //Segments in uri
+if (($uri_segs[1] != 'tests') && ($uri_segs[1] != 'experiment')) {
+	$route['(:any)/(:num)'] = "download/file/$1/$2";
+	$route['(:any)'] = "download/directory/$1";
+}
 
 
 /* End of file routes.php */
