@@ -2,10 +2,21 @@
 ###############
 DEOvADHLQf2DZ279lUhD.txt
 
-#GENERATED FILES#
+#UPLOADED FILES#
 #################
 files/*/
 files/zip/*.*
+
+#WINDOWS FILES#
+###############
+Thumbs.db
+*/Thumbs.db
+
+#ECLIPSE FILES#
+###############
+.buildpath
+.project
+.settings/
 
 #CONFIG FILES#
 ##############
