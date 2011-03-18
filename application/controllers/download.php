@@ -5,17 +5,17 @@ class Download extends Controller {
 	function Download()
 	{
 		parent::Controller();
-		$this->load->helper('lj_download');
+		$this->load->helper('download');
 		$this->load->helper('directory');
-		$this->load->helper('lj_file');
+		$this->load->helper('file');
 	}
 	
-	function directory($timestamp) {
-		$files = directory_map('files/' . $timestamp . '/');
+	function directory($directory) {
+		$files = directory_map('files/' . $directory . '/');
 		$num_files = count($files);
-		$filename = $num_files . '_Files_from_Abbarch_' . $timestamp;
+		$filename = $num_files . '_Files_from_Abbarch_' . $directory;
 		//zip the files
-		$shell_command = '/usr/bin/zip -j files/zip/' . $filename . ' files/' . $timestamp . '/*';
+		$shell_command = '/usr/bin/zip -j files/zip/' . $filename . ' files/' . $directory . '/*';
 		exec($shell_command);
 		
 		// Send the zip file to the user
@@ -23,10 +23,10 @@ class Download extends Controller {
 		force_download($filename . '.zip', $filepath);
 	}
 	
-	function file($timestamp, $index)
+	function file($directory, $index)
 	{
-		// Make a list of all files in the given timestamp directory
-		$dir_file_info = get_dir_file_info('files/' . $timestamp . '/');  // Reads the specified directory and
+		// Make a list of all files in the given directory
+		$dir_file_info = get_dir_file_info('files/' . $directory . '/');  // Reads the specified directory and
 																		  // builds an array containing the filenames,
 																		  // filesize, dates, and permissions.
 		$dir_file_info = $this->flip_diagonally($dir_file_info); // Transpose array;
@@ -40,11 +40,10 @@ class Download extends Controller {
 				break;
 			}
 			$i++;
-		}
-		
+		}		
 		
 		// Send the file at the given index to the user
-		$filepath = 'files/' . $timestamp . '/' . $filename_at_index;
+		$filepath = 'files/' . $directory . '/' . $filename_at_index;
 		//echo rawurlencode($filename_at_index);
 		force_download($filename, $filepath);
 	}
