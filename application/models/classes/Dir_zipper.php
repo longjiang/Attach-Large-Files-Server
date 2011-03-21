@@ -22,7 +22,6 @@ class Dir_zipper {
 	/*
 	 * Constructor
 	 * 
-	 * Takes an hash as parameters.  The hash has the following indexes:
 	 * @param  object  The CodeIgniter object
 	 * @param  string  Path of the directory to zip
 	 * @param  string  Path of the directory to save the zip file

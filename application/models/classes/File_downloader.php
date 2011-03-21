@@ -10,17 +10,26 @@
  * Forces a file to download rather than displaying in a browser.
  */
 class File_downloader {
+	private $_CI;
 
 	/*
 	 * Constructor
 	 * 
-	 * Takes an hash as parameters.  The hash has the following indexes:
-	 *   'CI':         object  The CodeIgniter object
-	 *   'file_path':  string  Path to the file
-	 * @param  array  
+	 * @param  object  The CodeIgniter object
 	 */
-    function File_downloader($params = array())
-    {
+    function File_downloader($params = array()) {
+    	$this->_CI = $CI;  
+    	$this->_CI->load->helper('download');  	
+    }
+    
+    /*
+     * Force download a given file on the server, pushes to the browser
+     * with a given custom file name 
+	 * @param  string  Path of the directory containing the file
+	 * @param  string  Name of the file
+	 * @param  string  How the file should be named when sending to browser
+     */
+    function download($source_dirpath, $source_filename, $target_filename) {
     	
     }
 }

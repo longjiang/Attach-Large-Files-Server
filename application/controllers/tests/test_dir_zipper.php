@@ -9,8 +9,10 @@ class Test_dir_zipper extends Controller {
 	function Test_dir_zipper() {
 		parent::Controller();
 		$this->_CI =& get_instance();
-		$this->load->model('files_model');
 		$this->load->library('unit_test');
+		
+		// Load the model in order to load the Dir_zipper class
+		$this->load->model('files_model');
 	}
 	
 	function index() {
