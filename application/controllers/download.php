@@ -26,9 +26,10 @@ class Download extends Controller {
 	function file($directory, $index)
 	{
 		// Make a list of all files in the given directory
-		$dir_file_info = get_dir_file_info('files/' . $directory . '/');  // Reads the specified directory and
-																		  // builds an array containing the filenames,
-																		  // filesize, dates, and permissions.
+		
+		// Reads the specified directory and builds an array containing the
+		// filenames, filesize, dates, and permissions.
+		$dir_file_info = get_dir_file_info('files/' . $directory . '/');
 		$dir_file_info = $this->flip_diagonally($dir_file_info); // Transpose array;
 		array_multisort($dir_file_info['date'], SORT_ASC, SORT_NUMERIC);
 		//var_dump($dir_file_info);
