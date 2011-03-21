@@ -46,10 +46,12 @@ $route['scaffolding_trigger'] = "";
 // Routing file download URIs.  Excluding experiment and tests controllers.
 $success = preg_match_all('/([^\/]*)/', $_SERVER['REQUEST_URI'], $matches);
 $uri_segs = $matches[0];  //Segments in uri
+
+$seg_index = $uri_segs[1] == 'index.php' ? 3 : 1;
 if (
-	($uri_segs[1] != 'tests') &&
-	($uri_segs[1] != 'experiment') &&
-	($uri_segs[1] != 'download')
+	($uri_segs[$seg_index] != 'tests') &&
+	($uri_segs[$seg_index] != 'experiment') &&
+	($uri_segs[$seg_index] != 'download')
 	) {
 	$route['(:any)/(:num)'] = "download/file/$1/$2";
 	$route['(:any)'] = "download/directory/$1";
